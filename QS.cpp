@@ -1,4 +1,3 @@
-#pragma once
 #include "QS.h"
 #include <string>
 
@@ -30,7 +29,8 @@ void QS::sortAll(){};
 *		the index of the pivot (middle index); -1 if provided with invalid input
 */
 int QS::medianOfThree(int left, int right){
-    if (right > (array_size_ - 1)) {
+    //error catcher
+    if ((left == right) || (left > right) || (left < 0) || (position_in_array_ == 0) || (right >= position_in_array_)) {
         return -1;
     }
     int middle = ((left + right)/2); //these aren't values, they are indices.
@@ -94,6 +94,9 @@ void QS::swapIndexValues(int index_one, int index_two) {
 * 		provided with bad input
 */
 int QS::partition(int left, int right, int pivotIndex){
+    if ((position_in_array_ == 0) || (left < 0) || (right == left) || (right >= position_in_array_) || (pivotIndex > right)) {
+        return -1;
+    }
     // cout << "the pivotIndex is: " << pivotIndex << "and the value is: " << iArray[pivotIndex] << endl;
     //step 1: swap pivotIndex and left
     swapIndexValues(left,pivotIndex);
