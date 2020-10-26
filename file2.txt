@@ -45,7 +45,7 @@ getArray
 medianOfThree 1 3
 getArray
 medianOfThree 0 2
-getArray 
+getArray
 medianOfThree 0 3
 getArray
 medianOfThree 1 3
